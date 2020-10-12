@@ -27,7 +27,7 @@ const getPageTitle = (to, links) => {
 const Container = styled.div`
   position: fixed;
   z-index: 2; /* Prevents header overlap */
-  top: 73px; /* account for mobile nav */
+  top: ${(props) => props.theme.variables.navHeight};
   background-color: ${(props) => props.theme.colors.ednBackground};
   height: auto;
   width: 100%;

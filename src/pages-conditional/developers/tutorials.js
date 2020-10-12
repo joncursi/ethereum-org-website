@@ -12,10 +12,7 @@ import PageMetadata from "../../components/PageMetadata"
 import Pill from "../../components/Pill"
 import Tag from "../../components/Tag"
 import TutorialTags from "../../components/TutorialTags"
-import {
-  EdnPage,
-  ButtonSecondary,
-} from "../../components/SharedStyledComponents"
+import { Page, ButtonSecondary } from "../../components/SharedStyledComponents"
 
 import { getLocaleTimestamp } from "../../utils/time"
 
@@ -64,8 +61,8 @@ const TutorialContainer = styled.div`
   }
 `
 
-const StyledEdnPage = styled(EdnPage)`
-  margin-top: 12rem;
+const StyledPage = styled(Page)`
+  margin-top: 4rem;
 `
 
 const PillContainer = styled.div`
@@ -250,7 +247,7 @@ const TutorialsPage = ({ data }) => {
   const [isModalOpen, setModalOpen] = useState(false)
 
   return (
-    <StyledEdnPage>
+    <StyledPage>
       <PageMetadata
         title="Ethereum Development Tutorials"
         description="Browse and filter vetted Ethereum community tutorials by topic."
@@ -358,7 +355,7 @@ const TutorialsPage = ({ data }) => {
           )
         })}
       </TutorialContainer>
-    </StyledEdnPage>
+    </StyledPage>
   )
 }
 export default TutorialsPage
