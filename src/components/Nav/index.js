@@ -23,7 +23,7 @@ const NavContainer = styled.div`
 
 const StyledNav = styled.nav`
   height: ${(props) => props.theme.variables.navHeight};
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -49,7 +49,11 @@ const NavContent = styled.div`
   max-width: ${(props) => props.theme.breakpoints.xl};
   @media (max-width: ${(props) => props.theme.breakpoints.l}) {
     justify-content: space-between;
+    align-items: center;
   }
+`
+const NavMobileButton = styled.span`
+  outline: none;
 `
 
 const InnerContent = styled.div`
@@ -108,6 +112,7 @@ const RightNavLink = styled(NavLink)`
 `
 
 const HomeLogo = styled(Img)`
+  vertical-align: bottom;
   opacity: 0.85;
   &:hover {
     opacity: 1;
@@ -365,9 +370,14 @@ const Nav = ({ handleThemeChange, isDarkTheme, path }) => {
             toggleTheme={handleThemeChange}
             linkSections={mobileLinkSections}
           />
-          <span onClick={handleMenuToggle}>
+          <NavMobileButton
+            onClick={handleMenuToggle}
+            onKeyDown={handleMenuToggle}
+            role="button"
+            tabIndex="0"
+          >
             <MenuIcon name="menu" />
-          </span>
+          </NavMobileButton>
         </NavContent>
       </StyledNav>
       {shouldShowSubNav && (

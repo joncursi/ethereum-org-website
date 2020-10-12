@@ -5,7 +5,11 @@ lang: en
 sidebar: true
 ---
 
-Transactions update the state of the Ethereum network and are initiated by Ethereum accounts. The simplest transaction is transferring ETH from one account to another.
+Transactions are cryptographically signed instructions from accounts. An account will initiate a transaction to update the state of the Ethereum network. The simplest transaction is transferring ETH from one account to another.
+
+<!-- TODO explain these 2 types of transactions -->
+<!-- There are two types of transactions: those which result in message calls and those which result in contract creation. -->
+<!-- Contract creation results in the creation of a new contract account containing compiled smart contract bytecode. Whenever another account makes a message call to that contract, it executes its bytecode. -->
 
 ## Prerequisites {#prerequisites}
 
@@ -22,7 +26,7 @@ Transactions require a fee and must be mined to become valid. To make this overv
 A submitted transaction includes the following information:
 
 - `recipient` – the receiving address (if an externally-owned account, the transaction will transfer value. If a contract account, the transaction will execute the contract code)
-- `signature` – the identifier of the sender. This is generated when the sender's public key signs the transaction and confirms the sender has authorised this transaction
+- `signature` – the identifier of the sender. This is generated when the sender's private key signs the transaction and confirms the sender has authorised this transaction
 - `value` – amount of ETH to transfer from sender to recipient (in WEI, a denomination of ETH)
 - `data` – optional field to include arbitrary data
 - `gasLimit` – the maximum amount of gas units that can be consumed by the transaction. Units of gas represent computational steps
@@ -47,7 +51,7 @@ But a transaction object needs to be signed using the sender's private key. This
 
 An Ethereum client like Geth will handle this signing process.
 
-Example [JSON-RPC](/https://eth.wiki/json-rpc/API) call:
+Example [JSON-RPC](https://eth.wiki/json-rpc/API) call:
 
 ```json
 {
